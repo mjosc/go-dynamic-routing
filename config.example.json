@@ -1,0 +1,56 @@
+{
+  "prefix": "/services",
+  "services": [
+    {
+      "repo": "https://github.com/DripEmail/a",
+      "team": "Foundation",
+      "domain": "a.example.com",
+      "prefix": "/a",
+      "preservePrefix": true,
+      "middleware": [],
+      "routes": [
+        {
+          "pattern": "/",
+          "contentType": "json",
+          "middleware": []
+        }
+      ]
+    },
+    {
+      "repo": "https://github.com/DripEmail/b",
+      "team": "Foundation",
+      "domain": "b.example.com",
+      "prefix": "/b",
+      "routes": [
+        {
+          "pattern": "/somepath",
+          "contentType": "json",
+          "middleware": [],
+          "routes": [
+            {
+              "pattern": "/somewhere"
+            },
+            {
+              "pattern": "/somewhere_else"
+            }
+          ]
+        },
+        {
+          "pattern": "/somewhere",
+          "contentType": "html",
+          "middleware": []
+        },
+        {
+          "pattern": "/somewhere/else",
+          "contentType": "json",
+          "middleware": []
+        },
+        {
+          "pattern": "/*",
+          "contentType": "json",
+          "middleware": []
+        }
+      ]
+    }
+  ]
+}
